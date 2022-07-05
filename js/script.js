@@ -1,4 +1,9 @@
-const slides = [
+const app = new Vue({
+    el: '#app',
+    data: {
+        i : 0,
+    
+    slides : [
     {
         image: 'img/01.jpg',
         title: 'Svezia',
@@ -24,6 +29,24 @@ const slides = [
         title: 'Paradise',
         text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
     }
-];
+],
+},
+methods: {
 
-console.log(slides);
+    nextSlide: function() {
+        this.i++;
+        if (this.i === this.slides.length) {
+            this.i = 0;
+        }
+    },
+    prevSlide: function() {
+        this.i--;
+        if (this.i < 0) {
+            this.i = this.slides.length - 1;
+        }
+    },
+}
+
+});
+
+
